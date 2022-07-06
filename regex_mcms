@@ -1,0 +1,49 @@
+Metacharacters:
+. -> match any single character except a newline(\n) character
+? -> used to match the preceding character either 0 time of 1 time
+    Ex:
+        Raj? => Raj, Ra
+* -> used to match the preceding character 0 times to infinite times
+    Ex:
+        Raj* => Ra, Raj, Rajj, Rajjj, Rajjjj, Rajjjjj, Rajjjjjj......
++ -> used to match the preceding character 1 times to infinite times
+    Ex:
+        Raj* => Raj, Rajj, Rajjj, Rajjjj, Rajjjjj, Rajjjjjj......
+^ -> match if the line starts with
+        Ex:
+           ^Raj => Rajesh is from india
+$ -> to check if the line ends with a particular character or word
+        Ex:
+            success$ => The job that does the data process runs to success
+            ;$ -> match the lines that ends with ;
+() - grouping
+    Ex:
+        (Raj)+ => Raj, RajRaj, RajRajRaj,RajRajRajRaj,.......
+[] -> matches the word if it contains any of the character mentioned within []
+    ex:
+        [aeiou] => matches all the words that contains vowel
+        [aeiou] => a or e or i or o or u
+        [^aeiou] => negote it. matches the word which does not contains vowels
+|   -> or
+        (raj|ram) -> match if there is raj or ram
+{m,n} -> matches the preceding character if it present min m times and max n times
+        Ex:
+            Ram{2,5}  => Ramm, Rammm, Rammmm, Rammmmm
+            Ram{,3} => Ram, Ramm, Rammm
+            Ram{2,} => Ramm, Rammm,Rammmm,Rammmmm,Rammmmmm........
+            Ram{2} => Ramm
+-  - range operator
+    Ex:
+        [1-10]  1,2,3,4,5,6,7,8,9,10
+        [a-h] = a b c d e f g h
+MetaSequences:
+\d - matches any digits [0-9]
+\D - matches everything except a number
+\w - matches any word character [a-zA-Z0-9_]
+\W - matches everything except a word character
+\s -> matches a single space
+\S - matches non space character
+\b - boundry character
+        Ex:
+            str1="The main street is broad"
+            /\broad\b/
